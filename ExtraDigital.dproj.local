@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/03/14 09:02:52.000.698,=C:\Users\Murilo\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/06/28 13:15:26.000.627,=C:\Users\Murilo\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/07/14 16:46:27.000.976,=C:\Users\Murilo\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/06/23 08:36:05.884,=C:\Users\Murilo\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/06/23 08:36:55.194,C:\Users\Murilo\Downloads\TESTE EXTRADIGITAL\uFrmPrincipal.dfm=C:\Users\Murilo\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2023/06/23 08:36:55.194,C:\Users\Murilo\Downloads\TESTE EXTRADIGITAL\uFrmPrincipal.pas=C:\Users\Murilo\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2023/06/23 08:37:07.858,C:\Users\Murilo\Downloads\TESTE EXTRADIGITAL\ExtraDigital.dproj=C:\Users\Murilo\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<NoProfile iOSSimulator="iPhone5"/>
+	</ActiveMobileDevice>
+</BorlandProject>

@@ -1,0 +1,14 @@
+object DmConexao: TDmConexao
+  OldCreateOrder = False
+  Height = 150
+  Width = 215
+  object FDConnection1: TFDConnection
+    ConnectionName = 'C:\TESTE EXTRADIGITAL\BASE\DADOS.FDB'
+    Params.Strings = (
+      'DriverID=FB'
+      'User_Name=SYSDBA'
+      'Password=masterkey')
+    Left = 80
+    Top = 64
+  end
+end

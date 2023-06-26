@@ -1,0 +1,39 @@
+unit uEmpresaController;
+
+interface
+
+uses
+  uEmpresaModel,uDmEmpresa;;
+
+type
+  TEmpresaController = class
+  public
+    function Inserir(oEmpresa: TEmpresa; var sErro: string): boolean;
+    function Alterar(oEmpresa: TEmpresa; var sErro: string): boolean;
+    function Excluir(oEmpresa: TEmpresa; var sErro: string): boolean;
+
+  end;
+
+implementation
+
+{ TEmpresaController }
+
+function TEmpresaController.Alterar(oEmpresa: TEmpresa;
+  var sErro: string): boolean;
+begin
+
+end;
+
+function TEmpresaController.Excluir(oEmpresa: TEmpresa;
+  var sErro: string): boolean;
+begin
+   Result:= DmEmpresa.Excluir(oEmpresa,sErro);
+end;
+
+function TEmpresaController.Inserir(oEmpresa: TEmpresa;
+  var sErro: string): boolean;
+begin
+   Result:= DmEmpresa.Alterar(oEmpresa,sErro);
+end;
+
+end.

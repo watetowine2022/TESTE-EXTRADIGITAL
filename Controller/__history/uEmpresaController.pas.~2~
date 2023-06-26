@@ -1,0 +1,24 @@
+unit uEmpresaController;
+
+interface
+
+uses
+  uEmpresaModel;
+
+type
+  TEmpresaController = class
+  public
+    function Inserir(oEmpresa: TEmpresa; var sErro: string): boolean;
+  end;
+
+implementation
+
+{ TEmpresaController }
+
+function TEmpresaController.Inserir(oEmpresa: TEmpresa;
+  var sErro: string): boolean;
+begin
+
+end;
+
+end.

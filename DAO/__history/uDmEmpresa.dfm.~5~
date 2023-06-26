@@ -1,0 +1,248 @@
+object DmEmpresa: TDmEmpresa
+  OldCreateOrder = False
+  Height = 252
+  Width = 405
+  object QryPesquisar: TFDQuery
+    Connection = DmConexao.FDConn
+    SQL.Strings = (
+      'select idempresa, nmempresa'
+      'from cadempresa')
+    Left = 32
+    Top = 40
+    ParamData = <
+      item
+        Position = 1
+        Name = 'IDEMPRESA'
+        DataType = ftInteger
+        FDDataType = dtInt16
+        ParamType = ptInput
+      end
+      item
+        Position = 2
+        Name = 'NMEMPRESA'
+        DataType = ftString
+        ParamType = ptInput
+      end>
+    object QryPesquisarIDEMPRESA: TIntegerField
+      FieldName = 'IDEMPRESA'
+      Origin = 'IDEMPRESA'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QryPesquisarNMEMPRESA: TStringField
+      FieldName = 'NMEMPRESA'
+      Origin = 'NMEMPRESA'
+      Size = 100
+    end
+  end
+  object QryInserir: TFDQuery
+    Connection = DmConexao.FDConn
+    SQL.Strings = (
+      
+        '               insert into cadempresa (idempresa, nmempresa, nuc' +
+        'npj, nuinscricao, stativo, dtcadastro, dtabertura, tlcomercial, ' +
+        'tlcelular, txobs, txemail, stexcluido, dtexcluido)'
+      
+        '               values (:idempresa, :nmempresa, :nucnpj, :nuinscr' +
+        'icao, :stativo, :dtcadastro, :dtabertura, :tlcomercial, :tlcelul' +
+        'ar, :txobs, :txemail, :stexcluido, :dtexcluido)')
+    Left = 112
+    Top = 40
+    ParamData = <
+      item
+        Name = 'IDEMPRESA'
+        DataType = ftInteger
+        ParamType = ptInput
+      end
+      item
+        Name = 'NMEMPRESA'
+        DataType = ftString
+        ParamType = ptInput
+      end
+      item
+        Name = 'NUCNPJ'
+        DataType = ftString
+        ParamType = ptInput
+      end
+      item
+        Name = 'NUINSCRICAO'
+        DataType = ftString
+        ParamType = ptInput
+      end
+      item
+        Name = 'STATIVO'
+        DataType = ftString
+        ParamType = ptInput
+      end
+      item
+        Name = 'DTCADASTRO'
+        DataType = ftDate
+        ParamType = ptInput
+      end
+      item
+        Name = 'DTABERTURA'
+        DataType = ftDate
+        ParamType = ptInput
+      end
+      item
+        Name = 'TLCOMERCIAL'
+        DataType = ftString
+        ParamType = ptInput
+      end
+      item
+        Name = 'TLCELULAR'
+        DataType = ftString
+        ParamType = ptInput
+      end
+      item
+        Name = 'TXOBS'
+        DataType = ftInteger
+        ParamType = ptInput
+      end
+      item
+        Name = 'TXEMAIL'
+        DataType = ftString
+        ParamType = ptInput
+      end
+      item
+        Name = 'STEXCLUIDO'
+        DataType = ftString
+        ParamType = ptInput
+      end
+      item
+        Name = 'DTEXCLUIDO'
+        DataType = ftDate
+        ParamType = ptInput
+      end>
+  end
+  object QryAlterar: TFDQuery
+    Connection = DmConexao.FDConn
+    SQL.Strings = (
+      '                     update cadempresa'
+      '                     set nmempresa = :nmempresa,'
+      '                         nucnpj = :nucnpj,'
+      '                         nuinscricao = :nuinscricao,'
+      '                         stativo = :stativo,'
+      '                         dtcadastro = :dtcadastro,'
+      '                         dtabertura = :dtabertura,'
+      '                         tlcomercial = :tlcomercial,'
+      '                         tlcelular = :tlcelular,'
+      '                         txobs = :txobs,'
+      '                         txemail = :txemail,'
+      '                         stexcluido = :stexcluido,'
+      '                         dtexcluido = :dtexcluido'
+      '                     where (idempresa = :idempresa)')
+    Left = 192
+    Top = 40
+    ParamData = <
+      item
+        Name = 'NMEMPRESA'
+        DataType = ftString
+        ParamType = ptInput
+      end
+      item
+        Name = 'NUCNPJ'
+        DataType = ftString
+        ParamType = ptInput
+      end
+      item
+        Name = 'NUINSCRICAO'
+        DataType = ftString
+        ParamType = ptInput
+      end
+      item
+        Name = 'STATIVO'
+        DataType = ftString
+        ParamType = ptInput
+      end
+      item
+        Name = 'DTCADASTRO'
+        DataType = ftDate
+        ParamType = ptInput
+      end
+      item
+        Name = 'DTABERTURA'
+        DataType = ftDate
+        ParamType = ptInput
+      end
+      item
+        Name = 'TLCOMERCIAL'
+        DataType = ftString
+        ParamType = ptInput
+      end
+      item
+        Name = 'TLCELULAR'
+        DataType = ftString
+        ParamType = ptInput
+      end
+      item
+        Name = 'TXOBS'
+        DataType = ftInteger
+        ParamType = ptInput
+      end
+      item
+        Name = 'TXEMAIL'
+        DataType = ftString
+        ParamType = ptInput
+      end
+      item
+        Name = 'STEXCLUIDO'
+        DataType = ftString
+        ParamType = ptInput
+      end
+      item
+        Name = 'DTEXCLUIDO'
+        DataType = ftDate
+        ParamType = ptInput
+      end
+      item
+        Name = 'IDEMPRESA'
+        DataType = ftInteger
+        ParamType = ptInput
+      end>
+  end
+  object QryExcluir: TFDQuery
+    Connection = DmConexao.FDConn
+    SQL.Strings = (
+      'delete from cadempresa'
+      '                  where (idempresa = :idempresa)')
+    Left = 272
+    Top = 40
+    ParamData = <
+      item
+        Name = 'IDEMPRESA'
+        DataType = ftInteger
+        ParamType = ptInput
+      end>
+  end
+  object DspPesquisar: TDataSetProvider
+    DataSet = QryPesquisar
+    Left = 32
+    Top = 120
+  end
+  object CdsPesquisar: TClientDataSet
+    Aggregates = <>
+    Params = <
+      item
+        DataType = ftInteger
+        Name = 'IDEMPRESA'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftString
+        Name = 'NMEMPRESA'
+        ParamType = ptInput
+      end>
+    ProviderName = 'DspPesquisar'
+    Left = 32
+    Top = 192
+    object CdsPesquisarIDEMPRESA: TIntegerField
+      FieldName = 'IDEMPRESA'
+      Required = True
+    end
+    object CdsPesquisarNMEMPRESA: TStringField
+      FieldName = 'NMEMPRESA'
+      Size = 100
+    end
+  end
+end

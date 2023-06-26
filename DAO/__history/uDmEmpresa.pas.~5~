@@ -1,0 +1,120 @@
+unit uDmEmpresa;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Datasnap.DBClient,
+  Datasnap.Provider, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
+  uDmConexao, uEmpresaModel;
+
+type
+  TDmEmpresa = class(TDataModule)
+    QryPesquisar: TFDQuery;
+    QryInserir: TFDQuery;
+    QryAlterar: TFDQuery;
+    QryExcluir: TFDQuery;
+    DspPesquisar: TDataSetProvider;
+    CdsPesquisar: TClientDataSet;
+    QryPesquisarIDEMPRESA: TIntegerField;
+    QryPesquisarNMEMPRESA: TStringField;
+    CdsPesquisarIDEMPRESA: TIntegerField;
+    CdsPesquisarNMEMPRESA: TStringField;
+  private
+    { Private declarations }
+  public
+    function GerarId: integer;
+    procedure Consulta(oparam : string);
+    procedure CarregarEmpresa(oEmpresa: TEmpresa; iCodigo:integer);
+    function inserir(oEmpresa: TEmpresa; out sErro: string): Boolean;
+  end;
+
+var
+  DmEmpresa: TDmEmpresa;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+
+{$R *.dfm}
+
+procedure TDmEmpresa.CarregarEmpresa(oEmpresa: TEmpresa; iCodigo: integer);
+var
+  SqlEmpresa : TFDQuery;
+  S : string;
+begin
+  SqlEmpresa := TFDQuery.Create(nil);
+  try
+    With SqlEmpresa do
+    begin
+      Connection := DmConexao.FDConn;
+      S:= 'select * from cadempresa where (idempresa = ' + IntToStr(iCodigo) + ')' ;
+      Sql.Add(S);
+      open;
+      with oEmpresa do
+      begin
+        ID           := FieldByName('idempresa').AsInteger;
+        NomeEmp      := FieldByName('nmempresa').AsString;
+        NUCnpj       := FieldByName('nucnpj').AsString;
+        NUInscricao  := FieldByName('nuinscricao').AsString;
+        SAtivo       := FieldByName('SAtivo').AsString;
+        DTCadastro   := FieldByName('dtcadastro').AsString;
+        DTAbertura   := FieldByName('dtabertura').AsString;
+        TelComercial := FieldByName('tlcomercial').AsString;
+        Celular      := FieldByName('tlcelular').AsString;
+        Obs          := FieldByName('txobs').AsInteger;
+        Email        := FieldByName('txemail').AsString;
+        STExcluido   := FieldByName('stexcluido').AsString;
+        DTExcluido   := FieldByName('dtexcluido').AsString;
+      end;
+    end;
+  finally
+    FreeAndNil(SqlEmpresa);
+  end;
+end;
+
+procedure TDmEmpresa.Consulta(oparam: string);
+begin
+  if CdsPesquisar.Active then
+     CdsPesquisar.close;
+
+  with CdsPesquisar do
+  begin
+    Params[0].AsInteger := StrToInt(oparam);
+    Params[1].AsString  := '%' + oparam + '%';
+    open;
+    First;
+  end;
+
+end;
+
+function TDmEmpresa.GerarId: integer;
+var UltimoID : TFDQuery;
+    s : string;
+begin
+  UltimoId := TFDQuery.Create(nil);
+  try
+    with UltimoID do
+    begin
+      Connection := DmConexao.FDConn;
+      s := ' select coalesce(max(idempresa),0) + 1 as seq from cadempresa ';
+      SQL.Add(s);
+      open;
+      Result:= UltimoId.FieldByName('seq').AsInteger;
+    end;
+  finally
+    FreeAndNil(UltimoID);
+  end;
+
+end;
+
+function TDmEmpresa.inserir(oEmpresa: TEmpresa; out sErro: string): Boolean;
+begin
+  with sql
+
+end;
+
+end.
+

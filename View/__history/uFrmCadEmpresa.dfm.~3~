@@ -1,0 +1,358 @@
+object FrmCadastroEmp: TFrmCadastroEmp
+  Left = 0
+  Top = 0
+  Caption = 'Cadastro de Empresa'
+  ClientHeight = 450
+  ClientWidth = 651
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  KeyPreview = True
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  OnKeyPress = FormKeyPress
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label2: TLabel
+    Left = 368
+    Top = 43
+    Width = 31
+    Height = 13
+    Caption = 'Status'
+  end
+  object PnlBtn: TPanel
+    Left = 0
+    Top = 409
+    Width = 651
+    Height = 41
+    Align = alBottom
+    TabOrder = 0
+    ExplicitLeft = 304
+    ExplicitTop = 120
+    ExplicitWidth = 185
+    object btnFechar: TButton
+      Left = 520
+      Top = 6
+      Width = 75
+      Height = 25
+      Caption = 'Encerrar'
+      TabOrder = 0
+      OnClick = btnFecharClick
+    end
+  end
+  object pgcPrincipal: TPageControl
+    Left = 0
+    Top = 0
+    Width = 651
+    Height = 409
+    ActivePage = tbDados
+    Align = alClient
+    TabOrder = 1
+    ExplicitLeft = 8
+    ExplicitTop = 48
+    ExplicitWidth = 289
+    ExplicitHeight = 193
+    object tbConsulta: TTabSheet
+      Caption = 'tbConsulta'
+      object pnlParam: TPanel
+        Left = 0
+        Top = 0
+        Width = 643
+        Height = 65
+        Align = alTop
+        Color = clAppWorkSpace
+        ParentBackground = False
+        TabOrder = 0
+        ExplicitWidth = 623
+        object lblPesq: TLabel
+          Left = 72
+          Top = 32
+          Width = 124
+          Height = 13
+          Caption = 'Digite o nome da empresa'
+        end
+        object edtParam: TEdit
+          Left = 205
+          Top = 28
+          Width = 208
+          Height = 21
+          TabOrder = 0
+        end
+        object btnPesquisar: TButton
+          Left = 516
+          Top = 28
+          Width = 75
+          Height = 25
+          Caption = 'Pesquisar'
+          TabOrder = 1
+        end
+      end
+      object pnlBotoes: TPanel
+        Left = 0
+        Top = 340
+        Width = 643
+        Height = 41
+        Align = alBottom
+        Color = clAppWorkSpace
+        ParentBackground = False
+        TabOrder = 1
+        ExplicitLeft = 64
+        ExplicitTop = 211
+        ExplicitWidth = 623
+        object btnNovo: TButton
+          Left = 314
+          Top = 14
+          Width = 75
+          Height = 25
+          Caption = 'Novo'
+          TabOrder = 0
+        end
+        object btnDetalhar: TButton
+          Left = 395
+          Top = 14
+          Width = 75
+          Height = 25
+          Caption = 'Detalhar'
+          TabOrder = 1
+        end
+        object btnExcluir: TButton
+          Left = 476
+          Top = 14
+          Width = 75
+          Height = 25
+          Caption = 'Excluir'
+          TabOrder = 2
+        end
+      end
+      object DBGrid1: TDBGrid
+        AlignWithMargins = True
+        Left = 3
+        Top = 68
+        Width = 637
+        Height = 269
+        Align = alClient
+        DrawingStyle = gdsGradient
+        TabOrder = 2
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+      end
+    end
+    object tbDados: TTabSheet
+      Caption = 'tbDados'
+      ImageIndex = 1
+      object Label1: TLabel
+        Left = 364
+        Top = 16
+        Width = 56
+        Height = 13
+        Caption = 'St.Exclusao'
+      end
+      object Label3: TLabel
+        Left = 197
+        Top = 17
+        Width = 56
+        Height = 13
+        Caption = 'St.Exclusao'
+      end
+      object edtCodigo: TLabeledEdit
+        Left = 24
+        Top = 36
+        Width = 130
+        Height = 21
+        EditLabel.Width = 33
+        EditLabel.Height = 13
+        EditLabel.Caption = 'C'#243'digo'
+        ReadOnly = True
+        TabOrder = 0
+      end
+      object edtNomeEmp: TLabeledEdit
+        Left = 24
+        Top = 84
+        Width = 481
+        Height = 21
+        EditLabel.Width = 90
+        EditLabel.Height = 13
+        EditLabel.Caption = 'Nome da Empresa:'
+        ReadOnly = True
+        TabOrder = 1
+      end
+      object LabeledEdit1: TLabeledEdit
+        Left = 24
+        Top = 132
+        Width = 185
+        Height = 21
+        EditLabel.Width = 29
+        EditLabel.Height = 13
+        EditLabel.Caption = 'CNPJ:'
+        ReadOnly = True
+        TabOrder = 2
+      end
+      object LabeledEdit2: TLabeledEdit
+        Left = 240
+        Top = 132
+        Width = 185
+        Height = 21
+        EditLabel.Width = 18
+        EditLabel.Height = 13
+        EditLabel.Caption = 'IE.:'
+        ReadOnly = True
+        TabOrder = 3
+      end
+      object cbStatus: TComboBox
+        Left = 192
+        Top = 36
+        Width = 145
+        Height = 21
+        TabOrder = 4
+        Text = 'cbStatus'
+        Items.Strings = (
+          'S'
+          'N')
+      end
+      object LabeledEdit3: TLabeledEdit
+        Left = 24
+        Top = 172
+        Width = 185
+        Height = 21
+        EditLabel.Width = 89
+        EditLabel.Height = 13
+        EditLabel.Caption = 'Data de Cadastro:'
+        ReadOnly = True
+        TabOrder = 5
+      end
+      object LabeledEdit4: TLabeledEdit
+        Left = 240
+        Top = 172
+        Width = 185
+        Height = 21
+        EditLabel.Width = 88
+        EditLabel.Height = 13
+        EditLabel.Caption = 'Data de Abertura:'
+        ReadOnly = True
+        TabOrder = 6
+      end
+      object LabeledEdit5: TLabeledEdit
+        Left = 24
+        Top = 216
+        Width = 185
+        Height = 21
+        EditLabel.Width = 95
+        EditLabel.Height = 13
+        EditLabel.Caption = 'Telefone Comercial:'
+        ReadOnly = True
+        TabOrder = 7
+      end
+      object LabeledEdit6: TLabeledEdit
+        Left = 240
+        Top = 216
+        Width = 185
+        Height = 21
+        EditLabel.Width = 37
+        EditLabel.Height = 13
+        EditLabel.Caption = 'Celular:'
+        ReadOnly = True
+        TabOrder = 8
+      end
+      object LabeledEdit7: TLabeledEdit
+        Left = 24
+        Top = 264
+        Width = 185
+        Height = 21
+        EditLabel.Width = 24
+        EditLabel.Height = 13
+        EditLabel.Caption = 'Email'
+        ReadOnly = True
+        TabOrder = 9
+      end
+      object LabeledEdit8: TLabeledEdit
+        Left = 240
+        Top = 264
+        Width = 185
+        Height = 21
+        EditLabel.Width = 53
+        EditLabel.Height = 13
+        EditLabel.Caption = 'St.Exclu'#237'do'
+        ReadOnly = True
+        TabOrder = 10
+      end
+      object LabeledEdit9: TLabeledEdit
+        Left = 24
+        Top = 304
+        Width = 185
+        Height = 21
+        EditLabel.Width = 68
+        EditLabel.Height = 13
+        EditLabel.Caption = 'Data Exclus'#227'o'
+        ReadOnly = True
+        TabOrder = 11
+      end
+      object Panel1: TPanel
+        Left = 0
+        Top = 340
+        Width = 643
+        Height = 41
+        Align = alBottom
+        Color = clAppWorkSpace
+        ParentBackground = False
+        TabOrder = 12
+        ExplicitLeft = 64
+        ExplicitTop = 211
+        ExplicitWidth = 623
+        object Button1: TButton
+          Left = 314
+          Top = 14
+          Width = 75
+          Height = 25
+          Caption = 'Novo'
+          TabOrder = 0
+        end
+        object Button2: TButton
+          Left = 395
+          Top = 14
+          Width = 75
+          Height = 25
+          Caption = 'Detalhar'
+          TabOrder = 1
+        end
+        object Button3: TButton
+          Left = 476
+          Top = 14
+          Width = 75
+          Height = 25
+          Caption = 'Excluir'
+          TabOrder = 2
+        end
+        object Button4: TButton
+          Left = 557
+          Top = 14
+          Width = 75
+          Height = 25
+          Caption = 'Cancelar'
+          TabOrder = 3
+        end
+      end
+    end
+  end
+  object ComboBox1: TComboBox
+    Left = 364
+    Top = 59
+    Width = 145
+    Height = 21
+    TabOrder = 2
+    Text = 'cbStatus'
+    Items.Strings = (
+      'S'
+      'N')
+  end
+  object dsConsulta: TDataSource
+    Left = 556
+    Top = 24
+  end
+end

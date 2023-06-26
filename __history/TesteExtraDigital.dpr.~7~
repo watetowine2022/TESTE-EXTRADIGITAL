@@ -1,0 +1,20 @@
+program TesteExtraDigital;
+
+uses
+  Vcl.Forms,
+  uFrmPrincipal in 'View\uFrmPrincipal.pas' {FrmPrincipal},
+  uFrmCadEmpresa in 'View\uFrmCadEmpresa.pas' {FrmCadastroEmp},
+  uEmpresaModel in 'Model\uEmpresaModel.pas',
+  uEmpresaController in 'Controller\uEmpresaController.pas',
+  uDmConexao in 'DAO\uDmConexao.pas' {DataModule1: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TFrmPrincipal, FrmPrincipal);
+  Application.CreateForm(TFrmCadastroEmp, FrmCadastroEmp);
+  Application.CreateForm(TDataModule1, DataModule1);
+  Application.Run;
+end.
