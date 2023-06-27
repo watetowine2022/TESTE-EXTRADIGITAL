@@ -64,6 +64,9 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure edtDtCadExit(Sender: TObject);
+    procedure edtDtAbertExit(Sender: TObject);
+    procedure edtDtExcluExit(Sender: TObject);
   private
     FOperacao : TOperacao;
   public
@@ -169,7 +172,16 @@ end;
 
 procedure TFrmCadastroEmp.btnPesquisarClick(Sender: TObject);
 begin
-  Pesquisar;
+  if edtparam.Text <> '' then
+   begin
+     Pesquisar;
+   end
+   else
+   begin
+     showMessage('Digite o código da empresa');
+     edtparam.SetFocus;
+   end;
+
 end;
 
 procedure TFrmCadastroEmp.CarregarCliente;
@@ -206,9 +218,11 @@ end;
 
 procedure TFrmCadastroEmp.Configuracoes;
 begin
-  tbConsulta.Visible := false;
+  tbConsulta.Visible := true;
   tbDados.Visible    := false;
   pgcPrincipal.ActivePage := tbConsulta;
+  edtparam.SetFocus;
+
 end;
 
 procedure TFrmCadastroEmp.DBGrid1DblClick(Sender: TObject);
@@ -222,6 +236,21 @@ begin
   HabilitarControles(opNavegar);
   FOperacao := opNavegar;
   pgcPrincipal.ActivePage := tbDados;
+end;
+
+procedure TFrmCadastroEmp.edtDtAbertExit(Sender: TObject);
+begin
+   edtDtAbert.Text := FormatDateTime('dd/MM/yyyy', strtodate(edtDtAbert.Text));
+end;
+
+procedure TFrmCadastroEmp.edtDtCadExit(Sender: TObject);
+begin
+  edtDtCad.Text := FormatDateTime('dd/MM/yyyy', strtodate(edtDtCad.Text));
+end;
+
+procedure TFrmCadastroEmp.edtDtExcluExit(Sender: TObject);
+begin
+   edtDtExclu.Text := FormatDateTime('dd/MM/yyyy', strtodate(edtDtExclu.Text));
 end;
 
 procedure TFrmCadastroEmp.Excluir;

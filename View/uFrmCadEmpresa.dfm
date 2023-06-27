@@ -32,7 +32,7 @@ object FrmCadastroEmp: TFrmCadastroEmp
     Align = alBottom
     TabOrder = 0
     ExplicitTop = 408
-    ExplicitWidth = 647
+    ExplicitWidth = 650
     object btnFechar: TButton
       Left = 520
       Top = 6
@@ -48,10 +48,10 @@ object FrmCadastroEmp: TFrmCadastroEmp
     Top = 0
     Width = 654
     Height = 409
-    ActivePage = tbDados
+    ActivePage = tbConsulta
     Align = alClient
     TabOrder = 1
-    ExplicitWidth = 647
+    ExplicitWidth = 650
     ExplicitHeight = 408
     object tbConsulta: TTabSheet
       Caption = 'tbConsulta'
@@ -64,13 +64,12 @@ object FrmCadastroEmp: TFrmCadastroEmp
         Color = clAppWorkSpace
         ParentBackground = False
         TabOrder = 0
-        ExplicitWidth = 643
         object lblPesq: TLabel
           Left = 72
           Top = 32
-          Width = 124
+          Width = 129
           Height = 13
-          Caption = 'Digite o nome da empresa'
+          Caption = 'Digite o c'#243'digo da empresa'
         end
         object edtParam: TEdit
           Left = 205
@@ -98,7 +97,6 @@ object FrmCadastroEmp: TFrmCadastroEmp
         Color = clAppWorkSpace
         ParentBackground = False
         TabOrder = 1
-        ExplicitWidth = 643
         object btnNovo: TButton
           Left = 314
           Top = 14
@@ -221,24 +219,30 @@ object FrmCadastroEmp: TFrmCadastroEmp
       object edtDtCad: TLabeledEdit
         Left = 24
         Top = 172
-        Width = 185
+        Width = 184
         Height = 21
         EditLabel.Width = 89
         EditLabel.Height = 13
         EditLabel.Caption = 'Data de Cadastro:'
+        EditMask = '!99/99/0000;1;_'
+        MaxLength = 10
         TabOrder = 5
-        Text = ''
+        Text = '  /  /    '
+        OnExit = edtDtCadExit
       end
       object edtDtAbert: TLabeledEdit
         Left = 240
         Top = 172
-        Width = 185
+        Width = 184
         Height = 21
         EditLabel.Width = 88
         EditLabel.Height = 13
         EditLabel.Caption = 'Data de Abertura:'
+        EditMask = '!99/99/0000;1;_'
+        MaxLength = 10
         TabOrder = 6
-        Text = ''
+        Text = '  /  /    '
+        OnExit = edtDtAbertExit
       end
       object edtTelCom: TLabeledEdit
         Left = 24
@@ -305,7 +309,7 @@ object FrmCadastroEmp: TFrmCadastroEmp
         ParentBackground = False
         TabOrder = 12
         ExplicitTop = 339
-        ExplicitWidth = 639
+        ExplicitWidth = 642
         object btnAlterar: TButton
           Left = 314
           Top = 14
@@ -356,13 +360,16 @@ object FrmCadastroEmp: TFrmCadastroEmp
       object edtDtExclu: TLabeledEdit
         Left = 24
         Top = 312
-        Width = 185
+        Width = 184
         Height = 21
         EditLabel.Width = 68
         EditLabel.Height = 13
         EditLabel.Caption = 'Data Exclus'#227'o'
+        EditMask = '!99/99/0000;1;_'
+        MaxLength = 10
         TabOrder = 14
-        Text = ''
+        Text = '  /  /    '
+        OnExit = edtDtExcluExit
       end
     end
   end
